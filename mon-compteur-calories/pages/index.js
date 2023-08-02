@@ -28,6 +28,7 @@ const Home = () => {
       proteins: event.target[4].value,
       fibers: event.target[5].value,
       weight: event.target[6].value,
+      date: new Date().toISOString().split('T')[0],
     };
     await axios.post('http://localhost:5000/products', newProduct);
     fetchProducts();
