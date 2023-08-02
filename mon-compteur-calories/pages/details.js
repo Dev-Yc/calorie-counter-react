@@ -9,7 +9,7 @@ const Details = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    if (date) fetchProducts(); // Charger les produits seulement si la date est définie
+    if (date) fetchProducts(); 
   }, [date]);
 
   const fetchProducts = async () => {
@@ -25,7 +25,7 @@ const Details = () => {
         {products.map((product, index) => (
           <li key={index}>
             {product.name}: {product.calories} calories
-            {/* Vous pouvez ajouter plus de détails ici si vous le souhaitez */}
+
           </li>
         ))}
       </ul>

@@ -1,72 +1,82 @@
 {
-    "products": [
-      {
-        "name": "dezdze",
-        "calories": "1515",
-        "fats": "51",
-        "carbs": "40",
-        "proteins": "30",
-        "fibers": "20",
-        "weight": "200",
-        "date": "2023-08-02",
-        "id": 2
-      },
-      {
-        "name": "test",
-        "calories": "1200",
-        "fats": "40",
-        "carbs": "35",
-        "proteins": "25",
-        "fibers": "15",
-        "weight": "180",
-        "date": "2023-08-02",
-        "id": 3
-      },
-      {
-        "name": "test 1",
-        "calories": "800",
-        "fats": "30",
-        "carbs": "25",
-        "proteins": "20",
-        "fibers": "10",
-        "weight": "150",
-        "date": "2023-08-02",
-        "id": 4
-      },
-      {
-        "name": "Produit A",
-        "calories": "1000",
-        "fats": "25",
-        "carbs": "60",
-        "proteins": "15",
-        "fibers": "5",
-        "weight": "120",
-        "date": "2023-08-01",
-        "id": 5
-      },
-      {
-        "name": "Produit B",
-        "calories": "700",
-        "fats": "15",
-        "carbs": "45",
-        "proteins": "10",
-        "fibers": "5",
-        "weight": "100",
-        "date": "2023-08-01",
-        "id": 6
-      },
-      {
-        "name": "Produit C",
-        "calories": "500",
-        "fats": "10",
-        "carbs": "30",
-        "proteins": "5",
-        "fibers": "3",
-        "weight": "80",
-        "date": "2023-08-01",
-        "id": 7
-      }
-    ],
-    "history": []
-  }
-  
+  "products": [
+    {
+      "name": "dezdze",
+      "calories": "1515",
+      "fats": "51",
+      "carbs": "40",
+      "proteins": "30",
+      "fibers": "20",
+      "weight": "200",
+      "date": "2023-08-02",
+      "id": 2
+    },
+    {
+      "name": "test",
+      "calories": "1200",
+      "fats": "40",
+      "carbs": "35",
+      "proteins": "25",
+      "fibers": "15",
+      "weight": "180",
+      "date": "2023-08-02",
+      "id": 3
+    },
+    {
+      "name": "test 1",
+      "calories": "800",
+      "fats": "30",
+      "carbs": "25",
+      "proteins": "20",
+      "fibers": "10",
+      "weight": "150",
+      "date": "2023-08-02",
+      "id": 4
+    },
+    {
+      "name": "Produit A",
+      "calories": "1000",
+      "fats": "25",
+      "carbs": "60",
+      "proteins": "15",
+      "fibers": "5",
+      "weight": "120",
+      "date": "2023-08-01",
+      "id": 5
+    },
+    {
+      "name": "Produit B",
+      "calories": "700",
+      "fats": "15",
+      "carbs": "45",
+      "proteins": "10",
+      "fibers": "5",
+      "weight": "100",
+      "date": "2023-08-01",
+      "id": 6
+    },
+    {
+      "name": "Produit C",
+      "calories": "500",
+      "fats": "10",
+      "carbs": "30",
+      "proteins": "5",
+      "fibers": "3",
+      "weight": "80",
+      "date": "2023-08-01",
+      "id": 7
+    },
+    {
+      "name": "banane",
+      "calories": "70",
+      "fats": "1",
+      "carbs": "30",
+      "proteins": "2",
+      "fibers": "4",
+      "weight": "1200",
+      "date": "2023-08-02",
+      "id": 8
+    }
+  ],
+  "history": []
+}

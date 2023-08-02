@@ -58,9 +58,8 @@ const Home = () => {
   return (
     <div>
       <h1>Compteur de calories</h1>
-      <Link href="/history">Voir l'historique</Link>
       <h2>Total des calories aujourd'hui : {totalCalories}</h2>
-      <form onSubmit={editingProduct ? updateProduct : addProduct}>
+      <form onSubmit={editingProduct ? updateProduct : addProduct} className="product-form">
         <input type="text" placeholder="Nom du produit" defaultValue={editingProduct?.name} />
         <input type="number" placeholder="Calories" defaultValue={editingProduct?.calories} />
         <input type="number" placeholder="Matières grasses (g)" defaultValue={editingProduct?.fats} />
@@ -71,13 +70,24 @@ const Home = () => {
         <button type="submit">{editingProduct ? 'Mettre à jour' : 'Ajouter'}</button>
       </form>
       <ul>
-        {products.map((product) => (
-          <li key={product.id}>
-            {product.name}: {product.calories} calories, {product.fats}g matières grasses, {product.carbs}g glucides, {product.proteins}g protéines, {product.fibers}g fibres, {product.weight}g poids
-            <button onClick={() => setEditingProduct(product)}>Modifier</button>
-            <button onClick={() => deleteProduct(product.id)}>Supprimer</button>
-          </li>
-        ))}
+      <div className="card-container">
+  {products.map((product, index) => (
+    <div key={index} className="card">
+      <div className="card-title">{product.name}</div>
+      <div className="card-details">
+        <div className="card-detail">Calories: {product.calories}</div>
+        <div className="card-detail">Fats: {product.fats}</div>
+        <div className="card-detail">Carbs: {product.carbs}</div>
+        <div className="card-detail">Proteins: {product.proteins}</div>
+        <div className="card-detail">Fibers: {product.fibers}</div>
+        <div className="card-detail">Weight: {product.weight}</div>
+      </div>
+    </div>
+  ))}
+</div>
+
+
+
       </ul>
     </div>
   );

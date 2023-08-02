@@ -105,3 +105,121 @@ a {
     color-scheme: dark;
   }
 }
+
+
+/* Début de la personnalisation */ 
+
+body {
+  margin-left: 10%;
+  width: 80%;
+
+}
+
+
+/* Formulaire */ 
+
+.product-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.product-form input {
+  flex: 1 0 calc(33.333% - 10px);
+  padding: 10px;
+  margin: 5px 0;
+}
+
+.product-form button {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+
+/* Carte produit dans Homepage */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin: 10px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card-detail {
+  margin: 5px;
+}
+
+/* Navbar */ 
+
+.navbar {
+  position: fixed;
+  bottom: 0;
+  width: 80%;
+  background: grey;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  border: 2px solid #ccc;
+  border-radius: 10px 10px 0 0;
+}
+
+  
+.navbar a {
+  padding: 10px;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+  color: #0071ff;
+}
+
+
+/* History */
+
+.history-container {
+  margin: 20px;
+}
+
+.history-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.history-card {
+  padding: 15px;
+  border-radius: 5px;
+  border: white 2px;
+}
+
+.details-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+.details-button:hover {
+  background: #0056b3;
+}

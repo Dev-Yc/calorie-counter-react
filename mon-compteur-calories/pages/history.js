@@ -13,7 +13,6 @@ const History = () => {
     const response = await axios.get('http://localhost:5000/products');
     const products = response.data;
 
-    // Regrouper les produits par date et calculer le total des calories
     const groupedProducts = products.reduce((acc, product) => {
       const date = product.date;
       if (!acc[date]) {
@@ -34,17 +33,18 @@ const History = () => {
   };
 
   return (
-    <div>
+    <div className="history-container">
       <h1>Historique</h1>
-      <Link href="/">Revenir à l'accueil</Link>
-      <ul>
+      <div className="history-cards">
         {history.map((day, index) => (
-          <li key={index}>
-            {day.date}: {day.totalCalories} calories
-            <Link href={`/details/${day.date}`}>Voir les détails</Link>
-          </li>
+          <div key={index} className="history-card">
+            <h2>{day.date}: {day.totalCalories} calories</h2>
+            <Link href={`/details/${day.date}`} className="details-button">
+              Voir les détails
+            </Link>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
