@@ -1,34 +1,42 @@
-import { useRouter } from 'next/router';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
-const Details = () => {
-  const router = useRouter();
-  const { date } = router.query; // Extraire la date de l'URL
+const Details = ({ date }) => {
   const [products, setProducts] = useState([]);
+  const [totalCalories, setTotalCalories] = useState(0);
 
   useEffect(() => {
-    if (date) fetchProducts(); 
-  }, [date]);
+    fetchDetails();
+  }, []);
 
-  const fetchProducts = async () => {
+  const fetchDetails = async () => {
     const response = await axios.get(`http://localhost:5000/products?date=${date}`);
-    setProducts(response.data);
+    const productsData = response.data;
+    setProducts(productsData);
+
+    const sumCalories = productsData.reduce((sum, product) => sum + parseInt(product.calories), 0);
+    setTotalCalories(sumCalories);
   };
 
   return (
-    <div>
+    <div className="details-container">
       <h1>Détails pour {date}</h1>
-      <Link href="/history">Revenir à l'historique</Link>
-      <ul>
+      <h2>Total des calories : {totalCalories}</h2>
+      <Link href="/history">Retour à l'historique</Link>
+      <div className="details-cards">
         {products.map((product, index) => (
-          <li key={index}>
-            {product.name}: {product.calories} calories
-
-          </li>
+          <div key={index} className="details-card">
+            <h2>{product.name}</h2>
+            <p>Calories: {product.calories}</p>
+            <p>Matières grasses: {product.fats}g</p>
+            <p>Glucides: {product.carbs}g</p>
+            <p>Protéines: {product.proteins}g</p>
+            <p>Fibres alimentaires: {product.fibers}g</p>
+            <p>Poids: {product.weight}g</p>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

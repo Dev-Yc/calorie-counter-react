@@ -107,6 +107,7 @@ a {
 }
 
 
+
 /* Début de la personnalisation */ 
 
 body {
@@ -233,4 +234,46 @@ body {
 
 .details-button:hover {
   background: #0056b3;
+}
+
+
+/* Details */
+
+.details-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.details-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.details-card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin: 15px;
+  width: 45%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.details-card h2 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+}
+
+.details-card p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
