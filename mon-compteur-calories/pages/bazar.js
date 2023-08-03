@@ -1,3 +1,5 @@
+
+
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import axios from 'axios';
@@ -13,14 +15,9 @@ const Home = () => {
 
   const fetchProducts = async () => {
     const response = await axios.get('http://localhost:5000/products');
-    const today = new Date().toISOString().split('T')[0];
-  
-    const todaysProducts = response.data.filter(product => product.date === today);
-  
-    setProducts(todaysProducts);
-    setTotalCalories(todaysProducts.reduce((sum, product) => sum + parseInt(product.calories), 0));
+    setProducts(response.data);
+    setTotalCalories(response.data.reduce((sum, product) => sum + parseInt(product.calories), 0));
   };
-  
 
   const addProduct = async (event) => {
     event.preventDefault();
@@ -38,14 +35,9 @@ const Home = () => {
     fetchProducts();
   };
 
-  const editProduct = (product) => {
-    setEditingProduct(product);
-  };
-
   const updateProduct = async (event) => {
     event.preventDefault();
     const updatedProduct = {
-      ...editingProduct,
       name: event.target[0].value,
       calories: event.target[1].value,
       fats: event.target[2].value,
@@ -69,7 +61,7 @@ const Home = () => {
       <h1>Compteur de calories</h1>
       <h2>Total des calories aujourd'hui : {totalCalories}</h2>
       <form onSubmit={editingProduct ? updateProduct : addProduct} className="product-form">
-      <input type="text" placeholder="Nom du produit" defaultValue={editingProduct?.name} />
+        <input type="text" placeholder="Nom du produit" defaultValue={editingProduct?.name} />
         <input type="number" placeholder="Calories" defaultValue={editingProduct?.calories} />
         <input type="number" placeholder="Matières grasses (g)" defaultValue={editingProduct?.fats} />
         <input type="number" placeholder="Glucides (g)" defaultValue={editingProduct?.carbs} />
@@ -77,11 +69,11 @@ const Home = () => {
         <input type="number" placeholder="Fibres alimentaires (g)" defaultValue={editingProduct?.fibers} />
         <input type="number" placeholder="Poids (g)" defaultValue={editingProduct?.weight} />
         <button type="submit">{editingProduct ? 'Mettre à jour' : 'Ajouter'}</button>
-        <button type="submit">{editingProduct ? 'Mettre à jour' : 'Ajouter'}</button>
       </form>
+      <ul>
       <div className="card-container">
-        {products.map((product, index) => (
-          <div key={index} className="card">
+  {products.map((product, index) => (
+    <div key={index} className="card">
       <div className="card-title">{product.name}</div>
       <div className="card-details">
         <div className="card-detail">Calories: {product.calories}</div>
@@ -91,14 +83,15 @@ const Home = () => {
         <div className="card-detail">Fibers: {product.fibers}</div>
         <div className="card-detail">Weight: {product.weight}</div>
       </div>
-            <button className="card-button" onClick={() => editProduct(product)}>Modifier</button>
-            <button className="card-button" onClick={() => deleteProduct(product.id)}>Supprimer</button>
-          </div>
-        ))}
-      </div>
+    </div>
+  ))}
+</div>
+
+
+
+      </ul>
     </div>
   );
 };
 
 export default Home;
-
